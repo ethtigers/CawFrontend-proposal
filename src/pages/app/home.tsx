@@ -6,19 +6,20 @@ import Scrollbar from "src/components/Scrollbar";
 import InputStyle from 'src/components/InputStyle';
 import Hidden from 'src/components/Hidden';
 import WallPost from 'src/sections/wall';
+import { useTranslation } from "react-i18next";
 
 FeedPage.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
 function SearchInput() {
-
+  const { t } = useTranslation();
   return (
     <InputStyle
       fullWidth
       stretchStart={200}
       stretchAdd={20}
-      placeholder="Search caw"
+      placeholder={t('labels.search_caw')}
       InputProps={{
         endAdornment: (
           <InputAdornment position="start">
@@ -41,8 +42,9 @@ function SearchInput() {
 
 export default function FeedPage() {
 
+  const { t } = useTranslation();
   return (
-    <PageWrapper title="Community Feed">
+    <PageWrapper title={t('app_home.page_title')}>
       <Grid container spacing={3}>
         <Hidden width="mdUp">
           <Grid item xs={12}>

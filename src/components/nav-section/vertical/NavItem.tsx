@@ -5,16 +5,17 @@ import Iconify from 'src/components/Iconify';
 import { NavItemProps } from '../type';
 import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from './style';
 import { isExternalLink } from '..';
+import { useTranslation } from "react-i18next";
 
 
 export function NavItemRoot({ item, isCollapse, open = false, active, onOpen }: NavItemProps) {
 
+  const { t } = useTranslation();
   const { title, path, icon, info, children } = item;
-
   const renderContent = (
     <>
       {icon && <ListItemIconStyle>{icon}</ListItemIconStyle>}
-      <ListItemTextStyle disableTypography primary={title} isCollapse={isCollapse} />
+      <ListItemTextStyle disableTypography primary={t(title)} isCollapse={isCollapse} />
       {!isCollapse && (
         <>
           {info && info}
@@ -48,12 +49,13 @@ type NavItemSubProps = Omit<NavItemProps, 'isCollapse'>;
 
 export function NavItemSub({ item, open = false, active = false, onOpen }: NavItemSubProps) {
 
+  const { t } = useTranslation();
   const { title, path, info, children } = item;
 
   const renderContent = (
     <>
       <DotIcon active={active} />
-      <ListItemText disableTypography primary={title} />
+      <ListItemText disableTypography primary={t(title)} />
       {info && info}
       {children && <ArrowIcon open={open} />}
     </>

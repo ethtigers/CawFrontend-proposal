@@ -10,7 +10,7 @@ const LANGS = [
   },
   {
     label: 'Español',
-    value: 'fr',
+    value: 'es',
     systemValue: esES,
     icon: '/icons/ic_flag_es.svg',
   },
@@ -25,9 +25,7 @@ const LANGS = [
 export default function useLocales() {
 
   const { i18n, t: translate } = useTranslation();
-  const langStorage = 'en';
-  // const langStorage = localStorage.getItem('i18nextLng');
-  // const langStorage = (typeof window !== 'undefined') ? localStorage.getItem('i18nextLng') : 'en';
+  const langStorage = (typeof window !== 'undefined') ? localStorage.getItem('i18nextLng') : 'en';
   const currentLang = LANGS.find((_lang) => _lang.value === langStorage) || LANGS[ 0 ];
 
   const handleChangeLanguage = (newlang: string) => {

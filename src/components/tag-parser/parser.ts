@@ -29,10 +29,8 @@ export const parse = ({ value, htRenderer, linkRenderer, atRenderer, stockRender
             if (chunk.includes('$'))
                 return stockRenderer(chunk, action);
 
-            if (chunk.includes('http') || chunk.includes('www')) {
-                console.info("render link")
+            if (chunk.includes('http') || chunk.includes('www')) 
                 return linkRenderer(chunk, action);
-            }
 
             return chunk;
         }

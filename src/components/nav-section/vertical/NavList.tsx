@@ -13,8 +13,8 @@ type NavListRootProps = {
 };
 
 export function NavListRoot({ list, isCollapse }: NavListRootProps) {
-  const { pathname, asPath } = useRouter();
 
+  const { pathname, asPath } = useRouter();
   const active = getActive(list.path, pathname, asPath);
 
   const [ open, setOpen ] = useState(active);

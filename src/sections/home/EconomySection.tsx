@@ -1,5 +1,6 @@
 import { m } from 'framer-motion';
 import NextLink from 'next/link';
+import { useTranslation } from "react-i18next";
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Grid, Button, Container, Typography } from '@mui/material';
 
@@ -69,6 +70,7 @@ const variantScreenRight = {
 export default function HomeHugePackElements() {
 
   const theme = useTheme();
+  const { t } = useTranslation();
   const isLight = theme.palette.mode === 'light';
   const isRTL = theme.direction === 'rtl';
 
@@ -88,14 +90,14 @@ export default function HomeHugePackElements() {
                   variant="overline"
                   sx={{ mb: 2, color: 'text.disabled' }}
                 >
-                  Social Economy
+                  {t('home.social_eco')}
                 </Typography>
               </m.div>
 
               <m.div variants={varFade().inUp}>
                 <Typography variant="h2" sx={{ mb: 3 }}>
-                  Get rewarded <br />
-                  while interacting
+                  {t('home.social_eco_label_1')} <br />
+                  {t('home.social_eco_label_2')}
                 </Typography>
               </m.div>
 
@@ -106,11 +108,11 @@ export default function HomeHugePackElements() {
                     color: isLight ? 'text.secondary' : 'common.white',
                   }}
                 >
-                  Financial technology based on secure distributed ledgers.
+                  {t('home.social_eco_label_3')}
                   <br />
                   <br />
                   <span>
-                    Active burns and rewards for all users.
+                    {t('home.social_eco_label_4')}
                   </span>
                 </Typography>
               </m.div>
@@ -118,7 +120,7 @@ export default function HomeHugePackElements() {
               <m.div variants={varFade().inUp}>
                 <NextLink href={PATH_PAGE.discover} passHref>
                   <Button size="large" color="inherit" variant="outlined">
-                    Find out more
+                    {t('verbs.find_out')} {t('labels.more')}
                   </Button>
                 </NextLink>
               </m.div>

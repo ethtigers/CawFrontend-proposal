@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-
+import { useTranslation } from 'react-i18next';
 import Layout from 'src/layouts';
 import Page from 'src/components/wrappers/Page';
 import { HomeHero, PoweredSection, EconomySection } from 'src/sections/home';
@@ -21,8 +21,11 @@ HomePage.getLayout = function getLayout(page: React.ReactElement) {
 
 
 export default function HomePage() {
+
+  const { t } = useTranslation();
+
   return (
-    <Page title="Decentralized Social Clearing House">
+    <Page title={t('home.page_title')}>
       <RootStyle>
         <HomeHero />
         <ContentStyle>

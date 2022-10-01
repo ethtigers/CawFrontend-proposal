@@ -1,4 +1,5 @@
 import { useLayoutEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { m } from 'framer-motion';
 
 import { posts } from 'src/_mock/wallposts'
@@ -10,6 +11,7 @@ import { Typography } from "@mui/material";
 
 export default function WallPost() {
 
+    const { t } = useTranslation();
     //* Pagination rendering logic
     const [ data, setData ] = useState<PostDto[]>([]);
     const [ loading, setLoading ] = useState(true);
@@ -27,11 +29,11 @@ export default function WallPost() {
 
     return (
         <MotionContainer>
-            {loading && <div>Loading...</div>}
+            {loading && <div>{t('labels.loading')}</div>}
             {!loading && (
                 <m.div variants={varFade().inDown}>
                     <Typography variant="h3" paragraph>
-                        Home
+                        {t('app_home.wall_title')}
                     </Typography>
                     <NewPost />
                 </m.div>

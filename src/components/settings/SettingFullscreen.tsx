@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import { alpha } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
@@ -6,6 +7,7 @@ import Iconify from 'src/components/Iconify';
 
 export default function SettingFullscreen() {
 
+  const { t } = useTranslation();
   const [ fullscreen, setFullscreen ] = useState(false);
 
   const toggleFullScreen = () => {
@@ -35,7 +37,7 @@ export default function SettingFullscreen() {
         }),
       }}
     >
-      {fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+      {fullscreen ? t('labels.exit_fullscreen') : t('labels.fullscreen')}
     </Button>
   );
 }

@@ -1,4 +1,5 @@
 import { Stack, Tooltip, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { IconButtonAnimate } from "src/components/animate";
 import Iconify from "src/components/Iconify";
 import { kFormatter } from 'src/utils/formatNumber'
@@ -23,8 +24,9 @@ export default function PostActions({ likes, comments, shared, dislikes }: Props
 }
 
 function SharingAction(shared: number) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Interesting and share">
+        <Tooltip title={t('labels.sharing')}>
             <Stack direction="row" spacing={0} alignItems="center">
                 <IconButtonAnimate>
                     <Iconify icon={'dashicons:share-alt'} width={20} height={20} />
@@ -38,8 +40,9 @@ function SharingAction(shared: number) {
 }
 
 function CommentsAction(comments: number) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Comments">
+        <Tooltip title={t('labels.comments')}>
             <Stack direction="row" spacing={0} alignItems="center">
                 <IconButtonAnimate>
                     <Iconify icon={'ic:baseline-comment'} width={20} height={20} />
@@ -53,8 +56,9 @@ function CommentsAction(comments: number) {
 }
 
 function DislikeAction(dislikes: number) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Dislikes">
+        <Tooltip title={t('labels.dislikes')}>
             <Stack direction="row" spacing={0} alignItems="center">
                 <IconButtonAnimate>
                     <Iconify icon={'icon-park-outline:unlike'} width={20} height={20} />
@@ -68,8 +72,9 @@ function DislikeAction(dislikes: number) {
 }
 
 function LikeAction(likes: number) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Likes">
+        <Tooltip title={t('labels.likes')}>
             <Stack direction="row" spacing={0} alignItems="center">
                 <IconButtonAnimate>
                     <Iconify icon={'flat-color-icons:like'} width={20} height={20} />

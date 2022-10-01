@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MenuItem, IconButton } from '@mui/material';
+import { useTranslation } from "react-i18next";
 
 import Iconify from 'src/components/Iconify';
 import MenuPopover from 'src/components/MenuPopover';
@@ -19,6 +20,7 @@ const ICON = {
 
 export function PostMenu({ postId, txId, onDelete }: Props) {
 
+    const { t } = useTranslation();
     const [ open, setOpen ] = useState<HTMLElement | null>(null);
 
     const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -62,15 +64,15 @@ export function PostMenu({ postId, txId, onDelete }: Props) {
             >
                 <MenuItem onClick={handleDelete}>
                     <Iconify icon={'eva:trash-fill'} sx={{ ...ICON }} />
-                    Delete
+                    {t('buttons.btn_delete')}
                 </MenuItem>
                 <MenuItem onClick={handleReport}>
                     <Iconify icon={'ic:baseline-report'} sx={{ ...ICON }} />
-                    Report
+                    {t('buttons.btn_report')}
                 </MenuItem>
                 <MenuItem onClick={handleBlockScan}>
                     <Iconify icon={'simple-icons:ethereum'} sx={{ ...ICON }} />
-                    Block scan
+                    {t('buttons.btn_scan')}
                 </MenuItem>
             </MenuPopover>
         </>

@@ -23,6 +23,7 @@ export default function NavSectionVertical({
   isCollapse = false,
   ...other
 }: NavSectionProps) {
+
   return (
     <Box {...other}>
       {navConfig.map((group) => (

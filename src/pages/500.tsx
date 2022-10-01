@@ -1,5 +1,6 @@
 import { m } from 'framer-motion';
 import NextLink from 'next/link';
+import { useTranslation } from "react-i18next";
 import { styled } from '@mui/material/styles';
 import { Box, Button, Typography, Container } from '@mui/material';
 
@@ -22,25 +23,26 @@ Page500.getLayout = function getLayout(page: React.ReactElement) {
 };
 
 export default function Page500() {
+  const { t } = useTranslation();
   return (
-    <Page title="500 Internal Server Error" sx={{ height: 1 }}>
+    <Page title={t('500.title')} sx={{ height: 1 }}>
       <RootStyle>
         <Container component={MotionContainer}>
           <Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
             <m.div variants={varBounce().in}>
               <Typography variant="h3" paragraph>
-                Internal Server Error
+                {t('500.title')}
               </Typography>
             </m.div>
             <Typography sx={{ color: 'text.secondary' }}>
-              Something went wrong. Please try again later.
+              {t('500.description')}
             </Typography>
             <m.div variants={varBounce().in}>
               <SeverErrorIllustration sx={{ height: 260, my: { xs: 5, sm: 10 } }} />
             </m.div>
             <NextLink href="/">
               <Button size="large" variant="contained">
-                Go Home
+                {t('buttons.go_home')}
               </Button>
             </NextLink>
           </Box>

@@ -1,4 +1,5 @@
 import { Stack, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import Block from "src/components/Block";
 import SettingColorPresets from "src/components/settings/SettingColorPresets";
@@ -7,11 +8,11 @@ import SettingFullscreen from "src/components/settings/SettingFullscreen";
 import SettingMode from "src/components/settings/SettingMode";
 
 export default function DisplaySettings() {
-
+    const { t } = useTranslation();
     return (
         <Block
-            title="Display"
-            subtitle="Customize the display of your account"
+            title={t('settings.display')}
+            subtitle={t('settings.display_description')}
         >
             <Stack
                 id="display-settings"
@@ -23,21 +24,29 @@ export default function DisplaySettings() {
             >
                 <Stack spacing={1} sx={{ width: '-webkit-fill-available' }} >
                     <div>
-                        <Typography variant="subtitle2">Mode</Typography>
+                        <Typography variant="subtitle2">
+                            {t('labels.mode')}
+                        </Typography>
                         <SettingMode />
                     </div>
                     <div>
-                        <Typography variant="subtitle2">Direction</Typography>
+                        <Typography variant="subtitle2">
+                            {t('labels.direction')}
+                        </Typography>
                         <SettingDirection />
                     </div>
                 </Stack>
                 <Stack spacing={1} sx={{ width: '-webkit-fill-available' }} >
                     <div>
-                        <Typography variant="subtitle2">Theme</Typography>
+                        <Typography variant="subtitle2">
+                            {t('labels.color_presets')}
+                        </Typography>
                         <SettingColorPresets />
                     </div>
                     <div>
-                        <Typography variant="subtitle2">Layout</Typography>
+                        <Typography variant="subtitle2">
+                            {t('labels.layout')}
+                        </Typography>
                         <SettingFullscreen />
                     </div>
                 </Stack>

@@ -1,7 +1,9 @@
 import { styled, useTheme } from '@mui/material/styles';
+import { useTranslation } from "react-i18next";
 import { Box, Button, AppBar, Toolbar, Container, Tooltip } from '@mui/material';
 
 import Logo from 'src/components/Logo';
+import LanguagePopover from "src/components/settings/LanguagePopover";
 import { PATH_AUTH } from 'src/routes/paths'
 import useOffSetTop from 'src/hooks/useOffSetTop';
 import cssStyles from 'src/utils/cssStyles';
@@ -36,6 +38,7 @@ export default function MainHeader() {
 
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
@@ -53,12 +56,13 @@ export default function MainHeader() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: theme.spacing(2),
           }}
         >
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
           <Tooltip
-            title="Mint is the new way to enter to a revolutionary world. Join us!"
+            title={t('home.btn_mint_tooltip')}
           >
             <Button
               variant="contained"
@@ -67,9 +71,10 @@ export default function MainHeader() {
               target="_blank"
               rel="noopener"
             >
-              Mint your
+              {t('home.btn_mint')}
             </Button>
           </Tooltip>
+          <LanguagePopover />
         </Container>
       </ToolbarStyle>
 

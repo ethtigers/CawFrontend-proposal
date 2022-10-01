@@ -9,7 +9,7 @@ export default function PrivateUserPage() {
         <PageWrapper title="Profile">
             <div>
                 <h1>
-                    Public profile page
+                    Private profile page
                 </h1>
             </div>
         </PageWrapper>

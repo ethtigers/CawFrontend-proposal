@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Container, Typography } from '@mui/material';
 
@@ -8,26 +9,18 @@ import { MotionViewport, varFade } from 'src/components/animate';
 const CARDS = [
   {
     icon: 'eos-icons:blockchain',
-    title: 'Blockchain Technology',
-    description:
-      `The blockchain is a distributed database across the entire network of computer systems all over the world.            
-      It helping to ensure that no single entity controls the database.
-      `,
+    title: 'home.blockchain_title',
+    description: 'home.blockchain_label',
   },
   {
     icon: 'tabler:currency-ethereum',
-    title: 'Powered by Ethereum',
-    description: `
-    Contract built on one of the most groundbreaking and scalable ecosystems in the world.
-    `
+    title: 'home.ethereum_title',
+    description: 'home.ethereum_label',
   },
   {
     icon: 'fluent:people-community-16-filled',
-    title: 'Community Driven',
-    description: `
-    CAW is by design without design, and it is up the CAWMmunity to shape CAW.
-    
-    `,
+    title: 'home.community_title',
+    description: 'home.community_label',
   },
 ];
 
@@ -88,6 +81,7 @@ const CardStyle = styled(Card)(({ theme }) => {
 export default function PoweredSection() {
 
   const theme = useTheme();
+  const { t } = useTranslation();
   const isLight = theme.palette.mode === 'light';
 
   return (
@@ -101,11 +95,13 @@ export default function PoweredSection() {
         >
           <m.div variants={varFade().inUp}>
             <Typography variant="h2" sx={{ mb: 2, color: 'text.disabled' }}>
-              CAW IS
+              {t('home.caw_is')}
             </Typography>
           </m.div>
           <m.div variants={varFade().inDown}>
-            <Typography variant="h3">Censorship resistance protocol across the world!</Typography>
+            <Typography variant="h3">
+              {t('home.censorship_title')}
+            </Typography>
           </m.div>
         </Box>
 
@@ -123,10 +119,10 @@ export default function PoweredSection() {
               >
                 {<Iconify icon={card.icon} width={40} height={40} sx={{ mb: 10, }} />}
                 <Typography variant="h5" paragraph>
-                  {card.title}
+                  {t(card.title)}
                 </Typography>
                 <Typography sx={{ color: isLight ? 'text.secondary' : 'common.white' }}>
-                  {card.description}
+                  {t(card.description)}
                 </Typography>
               </CardStyle>
             </m.div>

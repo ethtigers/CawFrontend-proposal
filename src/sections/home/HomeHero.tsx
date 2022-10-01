@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { m, AnimatePresence } from 'framer-motion';
 import NextLink from 'next/link';
 import { styled } from '@mui/material/styles';
@@ -119,7 +120,7 @@ function FlippingText() {
 }
 
 export default function HomeHero() {
-
+  const { t } = useTranslation();
   return (
     <MotionContainer id="hero-home" >
       <RootStyle>
@@ -149,7 +150,7 @@ export default function HomeHero() {
                   variant="contained"
                   startIcon={<Iconify icon={'eva:flash-fill'} width={20} height={20} />}
                 >
-                  Explore
+                  {t('verbs.explore')}
                 </Button>
               </NextLink>
             </m.div>

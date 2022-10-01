@@ -1,5 +1,6 @@
 import NextLink from 'next/link';
 import { styled } from '@mui/material/styles';
+import { useTranslation } from "react-i18next";
 import { Button, Typography, Container } from '@mui/material';
 
 import Layout from 'src/layouts';
@@ -21,20 +22,21 @@ Maintenance.getLayout = function getLayout(page: React.ReactElement) {
 
 
 export default function Maintenance() {
+  const { t } = useTranslation();
   return (
-    <Page title="Maintenance" sx={{ height: 1 }}>
+    <Page title={t('maintenance.title')} sx={{ height: 1 }}>
       <RootStyle>
         <Container sx={{ textAlign: 'center' }}>
           <Typography variant="h3" paragraph>
-            Website currently under maintenance
+            {t('maintenance.title')}
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            We are currently working hard on this page!
+            {t('maintenance.description')}
           </Typography>
           <MaintenanceIllustration sx={{ my: 10, height: 240 }} />
           <NextLink href="/">
             <Button size="large" variant="contained">
-              Go Home
+              {t('buttons.go_home')}
             </Button>
           </NextLink>
         </Container>
