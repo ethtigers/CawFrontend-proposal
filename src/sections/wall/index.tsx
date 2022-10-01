@@ -1,13 +1,13 @@
 import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Typography } from "@mui/material";
 import { m } from 'framer-motion';
 
 import { posts } from 'src/_mock/wallposts'
 import { MotionContainer, varFade } from 'src/components/animate';
 import NewPost from 'src/sections/post/NewPost';
-import { PostDto } from 'src/types/community-feed';
 import Post from 'src/sections/post';
-import { Typography } from "@mui/material";
+import { PostDto } from 'src/types/community-feed';
 
 export default function WallPost() {
 

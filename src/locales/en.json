@@ -58,7 +58,8 @@
     "direction": "Direction",
     "layout": "Layout",
     "fullscreen": "Fullscreen",
-    "exit_fullscreen": "Exit fullscreen"
+    "exit_fullscreen": "Exit fullscreen",
+    "add_long_caw": "Add nested CAW"
   },
   "sidebar_menu": {
     "home": "Home",

@@ -125,7 +125,7 @@ const JWTReducer = (state: AuthState, action: JWTActions) => {
 
 
 export const name_eateregg = 'draos2q';
-export const avatar_eateregg = 'https://upload.wikimedia.org/wikipedia/en/c/c4/Various_Bored_Ape.jpg';
+export const avatar_eateregg = 'https://pbs.twimg.com/profile_images/1576311533382078466/jfOC1m_E_400x400.jpg';
 
 const _testUser: AuthUser = {
   id: uuidv4(),
